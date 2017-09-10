@@ -1,0 +1,41 @@
+OBFUSCATOR
+Copyright rnd, 2017
+
+
+------------------------------------------------------------------------
+-- This program is free software: you can redistribute it and/or modify 
+-- it under the terms of the GNU General Public License as published by 
+-- the Free Software Foundation, either version 3 of the License, or    
+-- (at your option) any later version.                                  
+
+-- This program is distributed in the hope that it will be useful,
+-- but WITHOUT ANY WARRANTY; without even the implied warranty of
+-- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+-- GNU General Public License for more details.
+
+-- You should have received a copy of the GNU General Public License
+-- along with this program.  If not, see <http://www.gnu.org/licenses/>.
+------------------------------------------------------------------------
+
+Having trouble reading and understanding the code? Your worries will soon be over with my latest GPL OSI compliant open source mod
+that magically transforms your open source lua code to crystal clarity. Imagine the possibilities! :)
+
+Inspired by recent comments on anticheat forum topic i realised the error of my ways of hiding the code inside compiled binary,
+which is very unfair to the community since it blocks off the ability to read/edit/share code. Not to mention i could be hiding
+potentially bad stuff in binary .. which is just outrageous!
+I now know that the only true way is to provide FULL OPEN SOURCE code, so i wrote this little mod, which is fully open source too.
+Why write such a wonderful thing you ask? because we want to be FREE to use names like v_______ for our variables! FREEEEEEEEDOM :)
+
+
+INSTRUCTIONS
+modify last lines inside mod lua file for your own a_in.lua (bad unreadable code) and a_out.lua file (crystal clarity code (tm))
+
+0. use local variables all the time in your code, only use globals if absolutely necessary. all the local variables are affected by "clarity".
+1.follow this guideline with the structs a = {...} : 
+a = {b=c,d=e, function(f)  g ... } will work, so simple variables first, nested pure functions later is ok. 
+if you do function first it will assume you exited struct so stuff like b=c afterwards will get replaced too with v___ = v____ this will then cause execution errors!
+2. dont use same variable name for variable thats local and global
+
+
+
+
