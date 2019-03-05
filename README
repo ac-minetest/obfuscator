@@ -1,5 +1,5 @@
 OBFUSCATOR
-Copyright rnd, 2017
+Copyright rnd, 2019
 
 
 ------------------------------------------------------------------------
@@ -18,10 +18,10 @@ Copyright rnd, 2017
 ------------------------------------------------------------------------
 
 INSTRUCTIONS
-modify last lines inside mod lua file for your own a_in.lua (original) and a_out.lua file (obfuscated)
 
-0. use local variables all the time in your code, only use globals if absolutely necessary. all the local variables are affected by "clarity".
-1.follow this guideline with the structs a = {...} : 
-a = {b=c,d=e, function(f)  g ... } will work, so simple variables first, nested pure functions later is ok. 
-if you do function first it will assume you exited struct so stuff like b=c afterwards will get replaced too with v___ = v____ this will then cause execution errors!
-2. dont use same variable name for variable thats local and global
+obfuscator.lua contains main program. obfuscate(code) returns obfuscated code. 
+	possible issues: 
+		local x = 1; local table = {x=1}; print table["x"]
+		here 'x' will be renamed but "x" not, causing error. table.x will be renamed correctly though.
+
+obfuscated_obfuscator.lua contains obfuscated version of obfuscator.lua.
