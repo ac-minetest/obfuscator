@@ -162,15 +162,14 @@ end
 local text; local pattern; local code; local pos; local tab -- just so it gets obfuscated too when applied to itself
 
 -- DEMO EXAMPLE
+
 -- only variables that are local somewhere are obfuscated, like 'local variable_name'
 -- possible issues: table = {x=1}; local x; res["x"]
 --    here x will get renamed, but x in res["x"] not producing possible error, however res.x will be renamed correctly
 
 text = [=[
---  BEFORE: ---
-
 local i; local n
-factors = function( n ) 
+local factors = function( n ) 
     local f = {}
 	
     for i = 1, n/2 do -- here we try all the possible factors of n
@@ -186,5 +185,10 @@ end
 
 factors(25)
 ]=]
+
+--[[ 
+  obfuscated version is:
+  local a; local b local c = function( b ) local d = {} for a = 1, b/2 do if b % a == 0 then d[#d+1] = a end end d[#d+1] = b print("factors of " .. b .. " are : " .. table.concat(d,",")) end c(25) 
+--]]
 
 print(obfuscate(text)) -- print obfuscated version
